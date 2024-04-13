@@ -1,0 +1,23 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.121.24:3344/dhand?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+
+
+
+
+mybatis-plus:
+  type-aliases-package: com.jokeer.dhand.bean # 别名扫描包
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    com.jokeer: debug
+
+file:
+  upload:
+    path: D:\ideaWorkSpace\dhand-cloud\src\main\resources\images
