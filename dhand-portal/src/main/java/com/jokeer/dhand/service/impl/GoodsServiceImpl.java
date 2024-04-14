@@ -29,9 +29,10 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     @Autowired
     private GoodsMapper goodsMapper;
 
+    @SuppressWarnings("AlibabaTransactionMustHaveRollback")
     @Override
     @Transactional
-    public void publishGoods(List<String> urlList, Integer sellerId, String goodsName, String description, BigDecimal price, int stock) {
+    public void publishGoods(List<String> urlList, Long sellerId, String goodsName, String description, BigDecimal price, int stock) {
 
         //1.将商品相信插入数据库
         Goods goods = new Goods();
@@ -45,7 +46,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
         save(goods);
 
         //2.获取对应的商品id
-        Integer goodsId = goods.getGoodsId();
+        Long goodsId = goods.getGoodsId();
 
         //3.将商品对应的图片url插入数据库
         urlList.forEach(str -> goodsImageService.save(new GoodsImages(goodsId,str)));

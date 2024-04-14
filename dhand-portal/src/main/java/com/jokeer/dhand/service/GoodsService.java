@@ -12,7 +12,7 @@ public interface GoodsService extends IService<Goods> {
 
 
 
-    public void publishGoods(List<String> urlList, Integer sellerId, String goodsName, String description, BigDecimal price, int stock);
+    public void publishGoods(List<String> urlList, Long sellerId, String goodsName, String description, BigDecimal price, int stock);
 
     GoodsDTO getGoodsInfoById(Integer id);
 

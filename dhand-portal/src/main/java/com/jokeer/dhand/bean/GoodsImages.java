@@ -13,11 +13,11 @@ public class GoodsImages {
     @TableId(value = "image_id",type = IdType.AUTO)
     private Integer imageId;
 
-    private Integer goodsId;
+    private Long goodsId;
 
     private String url;
 
-    public GoodsImages(Integer goodsId, String url){
+    public GoodsImages(Long goodsId, String url){
         this.goodsId = goodsId;
         this.url = url;
 

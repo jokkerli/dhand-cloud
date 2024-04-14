@@ -40,7 +40,7 @@ public class GoodsController {
 
     @PostMapping("/publish")
     public Result publishGoods(@RequestParam("images") List<String> urlList,
-                             @RequestParam("sellerId") Integer sellId,
+                             @RequestParam("sellerId") Long sellId,
                              @RequestParam("goodsName") String goodsName,
                              @RequestParam("description") String description,
                              @RequestParam("price") BigDecimal price,

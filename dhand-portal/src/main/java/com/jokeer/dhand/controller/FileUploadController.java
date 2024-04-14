@@ -1,8 +1,10 @@
 package com.jokeer.dhand.controller;
 
+import com.jokeer.dhand.annoations.UserLoginToken;
 import com.jokeer.dhand.bean.Result;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,7 +14,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/file")
-@Api("文件上传")
+//@Api("文件上传")
 public class FileUploadController {
 
 
@@ -21,8 +23,8 @@ public class FileUploadController {
     private String uploadPath;
 
     @PostMapping("/upload")
-    @ApiOperation("文件上传")
-//    @UserLoginToken
+    @Operation()
+    @UserLoginToken
     public Result uploadFile(@RequestParam("file") MultipartFile file){
         String filename = file.getOriginalFilename();
 

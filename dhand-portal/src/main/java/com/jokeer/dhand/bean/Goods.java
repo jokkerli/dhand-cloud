@@ -13,7 +13,7 @@ import java.util.Date;
 public class Goods {
 
     @TableId(value = "goods_id", type = IdType.AUTO) // 使用MyBatis Plus的@TableId注解
-    private Integer goodsId;
+    private Long goodsId;
 
     private String name;
 
@@ -25,7 +25,7 @@ public class Goods {
 
     private Integer categoryId;
 
-    private Integer sellerId;
+    private Long sellerId;
 
     private Date createdAt;
 
