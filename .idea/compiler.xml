@@ -10,12 +10,14 @@
         <module name="dhand-portal" />
         <module name="dhand-common" />
         <module name="dhand-admin" />
+        <module name="dhand-auth" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="dhand-admin" options="-parameters" />
+      <module name="dhand-auth" options="-parameters" />
       <module name="dhand-common" options="-parameters" />
       <module name="dhand-portal" options="-parameters" />
     </option>

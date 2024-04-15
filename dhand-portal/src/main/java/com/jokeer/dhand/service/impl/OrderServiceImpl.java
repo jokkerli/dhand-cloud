@@ -1,6 +1,8 @@
 package com.jokeer.dhand.service.impl;
 
 import cn.hutool.core.date.DateTime;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.jokeer.dhand.DTO.OrderDTO;
 import com.jokeer.dhand.bean.Goods;
@@ -26,6 +28,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
     private GoodsService goodsService;
     @Autowired
     private RedisService redisService;
+    @Autowired
+    private  OrderMapper orderMapper;
     @Override
     public Order getOrderDetail(Long orderId) {
         Order order = getById(orderId);
@@ -84,5 +88,17 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         //2.修改数据库
         return update().set("total_amount", newPrice).eq("order_id", orderId).update();
 
+    }
+
+    @Override
+    public Page<Order> list(Integer status, Integer pageNum, Integer pageSize) {
+
+        Page<Order> page = new Page<>(pageNum, pageSize);
+
+        QueryWrapper<Order> queryWrapper = new QueryWrapper<Order>().eq("status", status).orderBy(true,true,"create_time");
+
+        Page<Order> orders = orderMapper.selectPage(page, queryWrapper);
+
+        return orders;
     }
 }
