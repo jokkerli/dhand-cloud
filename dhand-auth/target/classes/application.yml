@@ -2,6 +2,8 @@ server:
   port: 8082
 
 spring:
+  application:
+    name: dhand-auth
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://192.168.121.24:3344/dhand?useSSL=false&serverTimezone=UTC
@@ -14,3 +16,6 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+  cloud:
+    nacos:
+      server-addr: 192.168.121.24:8848

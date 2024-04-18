@@ -12,6 +12,7 @@
         <module>dhand-portal</module>
         <module>dhand-common</module>
         <module>dhand-auth</module>
+        <module>dhand-gateway</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -84,7 +85,10 @@
     </dependencies>
 
     <dependencyManagement>
+
         <dependencies>
+            <!-- 导入           -->
+
             <!--Spring Cloud 相关依赖-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>

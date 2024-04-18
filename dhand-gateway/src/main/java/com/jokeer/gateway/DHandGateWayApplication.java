@@ -1,12 +1,11 @@
-package com.jokeer.dhand;
+package com.jokeer.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
-public class DhandAdminApplication {
+public class DHandGateWayApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DhandAdminApplication.class,args);
+        SpringApplication.run(DHandGateWayApplication.class,args);
     }
 }

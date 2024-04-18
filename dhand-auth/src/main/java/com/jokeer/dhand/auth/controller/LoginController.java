@@ -25,10 +25,10 @@ public class LoginController {
     public CommonResult login(@RequestBody User user){
         return loginService.login(user);
     }
-    @PostMapping("/user/login1")
-    public CommonResult login1(@RequestBody User user){
-        return loginService.login(user);
-    }
+//    @PostMapping("/user/login1")
+//    public CommonResult login1(@RequestBody User user){
+//        return loginService.login(user);
+//    }
 
 
 }
