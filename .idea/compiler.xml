@@ -7,21 +7,30 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="dhand-portal" />
-        <module name="dhand-common" />
-        <module name="dhand-admin" />
-        <module name="dhand-auth" />
+        <module name="rookie-im-core" />
         <module name="dhand-gateway" />
+        <module name="dhand-portal" />
+        <module name="dhand-search" />
+        <module name="dhand-admin" />
+        <module name="dhand-common" />
+        <module name="dhand-chat" />
+        <module name="dhand-auth" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="dhand-chat" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="dhand-admin" options="-parameters" />
       <module name="dhand-auth" options="-parameters" />
+      <module name="dhand-chat" options="-parameters" />
       <module name="dhand-common" options="-parameters" />
       <module name="dhand-gateway" options="-parameters" />
       <module name="dhand-portal" options="-parameters" />
+      <module name="dhand-search" options="-parameters" />
+      <module name="rookie-im-core" options="-parameters" />
     </option>
   </component>
 </project>

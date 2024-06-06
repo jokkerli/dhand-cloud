@@ -8,7 +8,7 @@ spring:
       server-addr: 192.168.121.24:8848
     gateway:
       routes:
-        - id: dhand-porta;
-          uri: http://localhost:8081
+        - id: dhand-portal
+          uri: http://127.0.0.1:8081
           predicates:
-            - Path=/portal/**
+            - Path=/**

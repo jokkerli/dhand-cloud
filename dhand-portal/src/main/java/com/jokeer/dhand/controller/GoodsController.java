@@ -5,6 +5,7 @@ import com.jokeer.dhand.service.GoodsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -39,7 +40,7 @@ public class GoodsController {
 
 
     @PostMapping("/publish")
-    public Result publishGoods(@RequestParam("images") List<String> urlList,
+    public Result publishGoods(@RequestParam("images") List<MultipartFile> files,
                              @RequestParam("sellerId") Long sellId,
                              @RequestParam("goodsName") String goodsName,
                              @RequestParam("description") String description,
@@ -47,7 +48,7 @@ public class GoodsController {
                              @RequestParam("stock") int stock
                                ){
 
-        goodsService.publishGoods(urlList,sellId,goodsName,description,price,stock);
+        goodsService.publishGoods(files,sellId,goodsName,description,price,stock);
 
         return Result.ok();
 

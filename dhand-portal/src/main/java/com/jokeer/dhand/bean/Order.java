@@ -3,7 +3,6 @@ package com.jokeer.dhand.bean;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -25,6 +24,7 @@ public class Order {
 
     private Long goodsId;
 
+//    @ApiModelProperty
 //    @ApiModelProperty(value = "订单总金额")
     private BigDecimal totalAmount;
 

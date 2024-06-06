@@ -13,6 +13,7 @@
         <module>dhand-common</module>
         <module>dhand-auth</module>
         <module>dhand-gateway</module>
+        <module>dhand-search</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -53,6 +54,8 @@
         <nimbus-jose-jwt.version>9.23</nimbus-jose-jwt.version>
         <mall-common.version>1.0-SNAPSHOT</mall-common.version>
         <mall-mbg.version>1.0-SNAPSHOT</mall-mbg.version>
+        <knife4j-openapi3-spring.version>4.3.0</knife4j-openapi3-spring.version>
+        <redisson.version>3.15.6</redisson.version>
     </properties>
 
     <dependencies>
@@ -82,6 +85,13 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+        <!-- knife4j openapi3 接口文档 -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-openapi3-spring-boot-starter</artifactId>
+            <version>${knife4j-openapi3-spring.version}</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>

@@ -24,6 +24,13 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
 
+# spring-doc 接口文档
+springdoc:
+  api-docs:
+    enabled: true # 是否启用接口文档
+knife4j:
+  enable: true # 是否启用 knife4j 增强,如果只是使用 knife4j 的 UI,则可以关闭
+
 mybatis-plus:
   type-aliases-package: com.jokeer.dhand.bean # 别名扫描包
   configuration:
@@ -35,3 +42,9 @@ logging:
 file:
   upload:
     path: D:\ideaWorkSpace\dhand-cloud\src\main\resources\images
+
+minio:
+  endpoint: http://192.168.121.24:9000
+  access-key: 990A8F0CRDD6Z54SBSCT
+  secret-key: OC12m76qpcwNZFnPC3F7o+cLDQsz9RCfrxX5JRb5
+  bucket-name: dhand-order

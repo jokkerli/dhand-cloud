@@ -9,12 +9,15 @@ import com.jokeer.dhand.DTO.GoodsDTO;
 import com.jokeer.dhand.bean.Goods;
 import com.jokeer.dhand.bean.GoodsImages;
 import com.jokeer.dhand.mapper.GoodsMapper;
+import com.jokeer.dhand.service.FileService;
 import com.jokeer.dhand.service.GoodsImageService;
 import com.jokeer.dhand.service.GoodsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -28,11 +31,14 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
     private GoodsImageService goodsImageService;
     @Autowired
     private GoodsMapper goodsMapper;
-
+    @Autowired
+    private FileService fileService;
+    @Value("${minio.bucket-name}")
+    private String bucketName;
     @SuppressWarnings("AlibabaTransactionMustHaveRollback")
     @Override
     @Transactional
-    public void publishGoods(List<String> urlList, Long sellerId, String goodsName, String description, BigDecimal price, int stock) {
+    public void publishGoods(List<MultipartFile> files, Long sellerId, String goodsName, String description, BigDecimal price, int stock) {
 
         //1.将商品相信插入数据库
         Goods goods = new Goods();
@@ -47,11 +53,12 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
 
         //2.获取对应的商品id
         Long goodsId = goods.getGoodsId();
-
+        //TODO 使用消息队列分离将物品插入数据库和上传文件服务
         //3.将商品对应的图片url插入数据库
-        urlList.forEach(str -> goodsImageService.save(new GoodsImages(goodsId,str)));
-
-
+        files.forEach(file -> {
+            String imageName = fileService.uploadFile(file,bucketName);
+            goodsImageService.save(new GoodsImages(goodsId,imageName));
+        });
 
     }
 
